@@ -1,4 +1,3 @@
-
 Movie Service has dependency wirh Actor service
 
 Prerequisits:
@@ -7,8 +6,8 @@ Prerequisits:
 2. Run Movie Service
 
 
-   swagger
-   http://localhost:9595/swagger-ui/
+swagger
+http://localhost:9595/swagger-ui/
 
 Expected results from GET Movie , id = 1
 
