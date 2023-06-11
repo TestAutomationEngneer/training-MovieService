@@ -21,6 +21,10 @@ public class MovieRepository {
 
     private List<Movie> movieList = new ArrayList<>();
 
+    public List<Movie> getMovieList() {
+        return movieList;
+    }
+
     @EventListener
     public void onStartup(StartupEvent event) {
         loadMovies();
