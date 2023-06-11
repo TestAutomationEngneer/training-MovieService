@@ -1,0 +1,37 @@
+micronaut:
+  application:
+    name: movie
+  server:
+    port: 9595
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+      redoc:
+        paths: classpath:META-INF/swagger/views/redoc
+        mapping: /redoc/**
+      rapidoc:
+        paths: classpath:META-INF/swagger/views/rapidoc
+        mapping: /rapidoc/**
+#datasources:
+#  default:
+#    url: jdbc:postgresql://localhost:5432/moviedb
+#    driver-class-name: org.postgresql.Driver
+#    db-type: postgres
+#    dialect: postgres
+#    username: postgres
+#    password: postgres
+netty:
+  default:
+    allocator:
+      max-order: 3
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
