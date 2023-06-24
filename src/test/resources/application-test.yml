@@ -1,6 +1,3 @@
-jpa:
-  default:
-    properties:
-      hibernate:
-        hbm2ddl:
-          auto: create-drop
+mocronaut:
+  server:
+    port: -1
