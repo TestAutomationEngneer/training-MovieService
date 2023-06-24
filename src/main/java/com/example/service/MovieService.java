@@ -7,6 +7,7 @@ import com.example.model.MovieDTO;
 import com.example.repository.MovieRepository;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Singleton
+@RequiredArgsConstructor
 public class MovieService {
     @Inject
     private MovieRepository movieRepository;

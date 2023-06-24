@@ -3,6 +3,10 @@ micronaut:
     name: movie
   server:
     port: 9595
+  http:
+    services:
+      actor:
+        url: http://localhost:9292
   router:
     static-resources:
       swagger:

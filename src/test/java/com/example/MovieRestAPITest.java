@@ -79,7 +79,7 @@ public class MovieRestAPITest extends TestBase {
                 .statusCode(200).log().all()
                 .body("title", equalTo("Heat"))
                 .body("actors", hasSize(1))
-                .body("actors[0].firstName", equalTo("Robert"));
+                .body("actors[0].firstName", equalTo("Robercik"));
 
     }
 
