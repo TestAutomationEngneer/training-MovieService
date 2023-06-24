@@ -17,21 +17,8 @@ micronaut:
       rapidoc:
         paths: classpath:META-INF/swagger/views/rapidoc
         mapping: /rapidoc/**
-#datasources:
-#  default:
-#    url: jdbc:postgresql://localhost:5432/moviedb
-#    driver-class-name: org.postgresql.Driver
-#    db-type: postgres
-#    dialect: postgres
-#    username: postgres
-#    password: postgres
 netty:
   default:
     allocator:
       max-order: 3
-jpa:
-  default:
-    properties:
-      hibernate:
-        hbm2ddl:
-          auto: update
+

@@ -7,7 +7,7 @@ import io.micronaut.http.client.annotation.Client;
 import java.util.List;
 
 
-@Client("http://localhost:9292")
+@Client(id = "actor", path = "http://localhost:9292")
 public interface ActorClient {
 
 
