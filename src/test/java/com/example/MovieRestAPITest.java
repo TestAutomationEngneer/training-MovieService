@@ -2,6 +2,7 @@ package com.example;
 
 import com.example.actor.ActorClient;
 import com.example.base.TestBase;
+import com.example.model.Actor;
 import io.micronaut.runtime.server.EmbeddedServer;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import io.restassured.RestAssured;
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 import static io.restassured.RestAssured.given;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 
@@ -31,6 +33,12 @@ public class MovieRestAPITest extends TestBase {
         RestAssured.port = server.getPort();
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
         RestAssured.baseURI = "http://localhost:9595";
+    }
+
+    @Test
+    void shouldGetActorFromClient() {
+        Actor actualActor = actorClient.getActorById(2L);
+        assertThat(actualActor.getFirstName()).isEqualTo("Robercik");
     }
 
     @Test
