@@ -10,15 +10,14 @@ import au.com.dius.pact.core.model.RequestResponsePact;
 import au.com.dius.pact.core.model.annotations.Pact;
 import com.example.actor.ActorClient;
 import com.example.model.Actor;
+import io.micronaut.context.annotation.Property;
 import io.micronaut.http.HttpMethod;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
-import io.restassured.path.json.JsonPath;
 import jakarta.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.fluent.Request;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,6 +32,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @MicronautTest(environments = "pact")
 @Tag("pact")
 @Slf4j
+@Property(name = "micronaut.http.services.actor.url", value = "http://localhost:9999")
 public class MovieContractVerificationTest {
 
     @Inject
@@ -54,14 +54,19 @@ public class MovieContractVerificationTest {
 
     @Test
     @PactTestFor(pactMethod = "getMovie")
-    void shouldGetProperActor(MockServer mockServer) throws IOException {
+    void shouldGetProperActorBasedOnMicronautClient() {
+        Actor actor = actorClient.getActorById(99L);
+        assertThat(actor).isNotNull();
+        log.info(String.format("Pact test %s passed", "shouldGetProperActorBasedOnMicronautClient"));
+    }
+
+    @Test
+    @PactTestFor(pactMethod = "getMovie")
+    void shouldGetProperActorBasedOnMockServer(MockServer mockServer) throws IOException {
         HttpResponse httpResponse = Request.Get(mockServer.getUrl() + "/actors/99")
                 .execute().returnResponse();
         assertThat(httpResponse.getStatusLine().getStatusCode()).isEqualTo(200);
-        log.info(String.format("Pact test %s passed", "shouldGetProperActor"));
-
-        //Actor actor = actorClient.getActorById(99L);
-        //assertThat(actor).isNotNull();
+        log.info(String.format("Pact test %s passed", "shouldGetProperActorBasedOnMockServer"));
     }
 
     private DslPart getActorPactBody() {
