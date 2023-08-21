@@ -71,9 +71,6 @@ public class MovieContractVerificationTest {
 
     private DslPart getActorPactBody() {
         return new PactDslJsonBody()
-                .minArrayLike("actor", 1)
-                .stringType("firstName", "Tomasz")
-                .closeObject()
-                .closeArray();
+                .stringType("firstName", "Tomasz");
     }
 }
