@@ -42,7 +42,6 @@ public class MovieRestAPITest extends TestBase {
                 .statusCode(200).log().all()
                 .body("title", equalTo("Catch Me If You Can"))
                 .body("actors", hasSize(2));
-
     }
 
     @Test
@@ -55,7 +54,6 @@ public class MovieRestAPITest extends TestBase {
                 .body("title", equalTo("Catch Me If You Can"))
                 .body("actors", hasSize(2))
                 .body("actors[0].firstName", equalTo("Leonardo"));
-
     }
 
     @Test
@@ -67,7 +65,6 @@ public class MovieRestAPITest extends TestBase {
                 .statusCode(200).log().all()
                 .body("title", equalTo("Heat"))
                 .body("actors", hasSize(1));
-
     }
 
     @Test
@@ -79,8 +76,6 @@ public class MovieRestAPITest extends TestBase {
                 .statusCode(200).log().all()
                 .body("title", equalTo("Heat"))
                 .body("actors", hasSize(1))
-                .body("actors[0].firstName", equalTo("Robercik"));
-
+                .body("actors[0].firstName", equalTo("Robercik"));  //z  @MockBean(ActorClient.class)
     }
-
 }

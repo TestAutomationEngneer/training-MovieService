@@ -1,6 +1,5 @@
 package com.example.model;
 
-
 import io.micronaut.serde.annotation.Serdeable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,12 +13,10 @@ import lombok.NoArgsConstructor;
 @Serdeable.Deserializable
 @Builder
 public class Actor {
-
     private Long id;
     private String firstName;
     private String lastName;
     private int rating;
     private boolean oscarPrized;
-
 }
 

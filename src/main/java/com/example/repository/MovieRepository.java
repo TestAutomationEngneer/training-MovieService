@@ -7,8 +7,6 @@ import io.micronaut.context.event.StartupEvent;
 import io.micronaut.runtime.event.annotation.EventListener;
 import jakarta.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
-
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -31,7 +29,6 @@ public class MovieRepository {
     }
 
 
-
     public Optional<Movie> findById(Long id) {
         return movieList.stream()
                 .filter(movie -> movie.getId().equals(id))
@@ -47,7 +44,6 @@ public class MovieRepository {
         movieList.add(movie);
         return movie;
     }
-
 
     public boolean delete(Long id) {
         return movieList.removeIf(movie -> movie.getId().equals(id));

@@ -1,6 +1,5 @@
 package com.example;
 
-import com.example.exception.NotFoundException;
 import com.example.model.Movie;
 import com.example.model.MovieDTO;
 import com.example.service.MovieService;
@@ -26,7 +25,6 @@ public class MovieController {
     @Get("/{id}")
     public MovieDTO getOne(@PathVariable Long id) {
         return movieService.getMovieById(id);
-
     }
 
     @Post("/")
@@ -34,8 +32,6 @@ public class MovieController {
     public Movie create(@Body Movie movie) {
         return movieService.saveMovie(movie);
     }
-
-
 
     @Delete("/{id}")
     public HttpStatus delete(@PathVariable Long id) {

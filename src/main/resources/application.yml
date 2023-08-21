@@ -7,6 +7,9 @@ micronaut:
     services:
       actor:
         url: http://localhost:9292
+    client:
+      read-timeout: 5s
+
   router:
     static-resources:
       swagger:

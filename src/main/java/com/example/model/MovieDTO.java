@@ -6,7 +6,6 @@ import io.micronaut.serde.annotation.Serdeable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 @Introspected
@@ -17,11 +16,9 @@ import java.util.List;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MovieDTO {
-
     private Long id;
     private String title;
     private String director;
     private Integer year;
     private List<Actor> actors;
-
 }

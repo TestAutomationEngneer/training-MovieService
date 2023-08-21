@@ -8,11 +8,10 @@ import com.example.repository.MovieRepository;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import lombok.RequiredArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Singleton
 @RequiredArgsConstructor
@@ -36,8 +35,6 @@ public class MovieService {
         }
         return movieDTO;
     }
-
-
 
     public List<MovieDTO> getAllMovies() {
         List<MovieDTO> response = new ArrayList<>();
@@ -63,8 +60,6 @@ public class MovieService {
         Movie movie = movieRepository.findById(id).orElseThrow(() -> new RuntimeException("Movie not found"));
         movieRepository.delete(movie.getId());
     }
-
-
 
     private List<Actor> loadActors(List<Long> actorIds) {
         List<Actor> actorList = new ArrayList<>();
