@@ -76,6 +76,6 @@ public class MovieRestAPITest extends TestBase {
                 .statusCode(200).log().all()
                 .body("title", equalTo("Heat"))
                 .body("actors", hasSize(1))
-                .body("actors[0].firstName", equalTo("Robercik"));  //z  @MockBean(ActorClient.class)
+                .body("actors[0].firstName", equalTo("Robercik"));  //z  @MockBean(ActorClient.class) w TestBase
     }
 }
